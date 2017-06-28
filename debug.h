@@ -1,6 +1,6 @@
 /*
  * =====================================================================================
- *       Copyright (c), 2013-2020, Sobey.
+ *       Copyright (c), 2013-2020, HWT.
  *       Filename:  debug.h
  *
  *    Description:  
@@ -12,7 +12,7 @@
  *       Compiler:  gcc
  *
  *         Author:  Sean. Hou (hwt), houwentaoff@gmail.com
- *   Organization:  Sobey
+ *   Organization:  
  *
  * =====================================================================================
  */

@@ -12,7 +12,7 @@
  *       Compiler:  g++
  *
  *         Author:  Sean. Hou (hwt), houwentaoff@gmail.com
- *   Organization:  Sobey
+ *   Organization:  
  *
  * =====================================================================================
  */

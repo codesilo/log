@@ -1,6 +1,6 @@
 /*
  * =====================================================================================
- *       Copyright (c), 2013-2020, Sobey.
+ *       Copyright (c), 2013-2020, HWT.
  *       Filename:  log.c
  *
  *    Description:  
@@ -12,7 +12,7 @@
  *       Compiler:  gcc
  *
  *         Author:  Joy. Hou (hwt), houwentaoff@gmail.com
- *   Organization:  Jz
+ *   Organization:  
  *
  * =====================================================================================
  */
@@ -20,6 +20,7 @@
 #include "include.h"
 #include "debug.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 #define ENABLE_FEATURE_ROTATE_LOGFILE  1
 #define DEV_CONSOLE "/dev/console"
@@ -42,10 +43,16 @@ static logFile_t *log_file=NULL;
 
 int log_init(const char *path)
 {
+    char cmdBuf[512]={0};
+    char dirName[512]={0};
 
     G.logFile.path = path;
+    strcpy(dirName, path);
+    dirname(dirName);
     log_file = &(G.logFile);
     
+    sprintf(cmdBuf, "mkdir -p %s", dirName);
+    system(cmdBuf);
     if ((log_file->fd = open(G.logFile.path, O_APPEND|O_CREAT|O_WRONLY, 0666)) < 0)
     {
         perror("open log file fail\n");
@@ -108,7 +115,7 @@ reopen:
 //            full_write(fd, msg, len);
             if (fd != 2)
                 close(fd);
-            return;
+            return "";
         }
         log_file->fd = open(log_file->path, O_WRONLY | O_CREAT
                             | O_NOCTTY | O_APPEND | O_NONBLOCK,

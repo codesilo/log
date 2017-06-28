@@ -1,6 +1,6 @@
 /*
  * =====================================================================================
- *       Copyright (c), 2013-2020, xxx.
+ *       Copyright (c), 2013-2020, HWT.
  *       Filename:  test_main.c
  *
  *    Description:  
@@ -12,7 +12,7 @@
  *       Compiler:  gcc
  *
  *         Author:  Joy. Hou (hwt), houwentaoff@gmail.com
- *   Organization:  xxx
+ *   Organization:  
  *
  * =====================================================================================
  */
@@ -40,7 +40,7 @@ int main ( int argc, char *argv[] )
 #endif
     int ret;
     INIT_G();
-    G.logFileSize = 200;// _M(1);
+    G.logFileSize = _M(1);// _M(1);
     G.logFileRotate = 9;
     G.logFile.path = LOG_PATH;
     log_init(LOG_PATH);
