@@ -58,6 +58,9 @@ int log_init(const char *path)
         perror("open log file fail\n");
         return -1;
     }
+    sprintf(cmdBuf, "%s/current_logfile", dirName);
+    remove(cmdBuf);
+    symlink(G.logFile.path, cmdBuf);
     dup2(log_file->fd, 2);
     dup2(log_file->fd, 1);
 //    dup2(log_file->fd, infd);
